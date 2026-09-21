@@ -37,6 +37,35 @@ git push origin main
 Pages setup: Settings → Pages → *Deploy from a branch* → `main` / `/ (root)`.
 The free plan requires a public repo. A push rebuilds the site in ~1–3 minutes.
 
+## Take the site offline / back online
+
+Deleting the Pages site stops serving it (the edge cache drops it within ~10
+minutes); the repo and its files are untouched. Turning it back on re-creates
+Pages and builds from `main` again.
+
+```bat
+rem offline
+gh api -X DELETE repos/seewpx/blog/pages
+
+rem online again
+gh api -X POST repos/seewpx/blog/pages -f source[branch]=main -f source[path]=/
+```
+
+Both directions are one command and need no settings-page visit.
+
+Packages are separate: `gh release delete <tag> --yes --cleanup-tag` removes a
+published download (the local build is unaffected). `assets/downloads.js` keeps
+the entries either way, so the cards point at the right URL again as soon as the
+release is re-created — with the **same tag and asset name**:
+
+```bat
+gh release create v1.0 ..\tf2-aimbot\dist\tf2-aimbot-v1.0.zip -R seewpx/blog ^
+  --title "tf2-aimbot v1.0" --notes "See https://seewpx.github.io/blog/posts/tf2-aimbot.html"
+```
+
+`python scripts\add_release.py --list` prints tag, asset name, size and SHA256 for
+every entry, which is everything needed to rebuild the release.
+
 ## Release a version
 
 1. Build the artifact (for tf2-aimbot: `dist\package.bat`).
