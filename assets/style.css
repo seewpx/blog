@@ -193,3 +193,25 @@ button.copy {
 button.copy:hover { color: var(--accent); border-color: var(--accent); }
 
 .hash { font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; word-break: break-all; }
+
+/* ---- screenshots ---- */
+
+figure.shot { margin: 22px 0; }
+
+figure.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--code-bg);
+}
+
+figure.shot figcaption {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+figure.shot + figure.shot { margin-top: 28px; }
+

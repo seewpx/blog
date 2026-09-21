@@ -124,6 +124,29 @@ rem 打开 http://localhost:8000/
    <p class="muted">SHA256:<span data-download-hash="tf2-aimbot"></span></p>
    ```
 
+## 加一张截图
+
+NVIDIA 的 HDR 截图是 `.jxr`(浏览器不认,而且十几 MB),用仓库里的脚本转一下
+—— 它走 Windows 自带的 WIC 解码,不需要装任何东西:
+
+```bat
+powershell -File scripts\import_shot.ps1 ^
+  -Src "C:\Users\你\Videos\NVIDIA\Titanfall 2\Titanfall 2 Screenshot ....jxr" ^
+  -Name tf2-aimbot-02
+```
+
+产出 `assets\shots\<Name>.jpg`(默认等比缩到 1600 宽、JPEG 质量 88;要改加
+`-Width 1200 -Quality 85`)。png/jpg 的截图也能直接喂给它。然后在文章里写:
+
+```html
+<figure class="shot">
+  <img src="../assets/shots/tf2-aimbot-02.jpg" width="1600" height="900" loading="lazy" alt="...">
+  <figcaption>图注。</figcaption>
+</figure>
+```
+
+`width`/`height` 按脚本输出的尺寸填,能避免加载时页面跳动。
+
 ## 自定义域名(可选)
 
 仓库根目录放一个 `CNAME` 文件,内容写域名;再在仓库 Settings → Pages 里填 Custom domain,
