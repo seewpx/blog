@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>泰坦陨落 2 战役辅助:功能、用法与下载 · 单机辅助手记</title>
+<meta name="description" content="泰坦陨落 2 单人战役辅助:透视方框、按住右键自动锁头、扳机机器人、头点现场标定。含热键表、已知限制与下载。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html">单机辅助手记<small>单人模式 · 成品与说明</small></a>
+    <nav>
+      <a href="../index.html">首页</a>
+      <a href="../projects.html">项目与下载</a>
+      <a href="../about.html">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h1>泰坦陨落 2 战役辅助:功能、用法与下载</h1>
+  <p class="meta">2026-09-21 · 版本 v1.0 · 仅单人战役 · 支持游戏版本 v2.0.11.0</p>
+
+  <p class="lede">给泰坦陨落 2 <strong>单人战役</strong>做的辅助:屏幕上的透视方框,加上按住右键把准星拉到最近敌人头部。战役流程里省得跟枪。</p>
+
+  <div class="warn">
+    <p><strong>只用于单人战役。</strong>多人(官方服、Northstar 社区服)请不要用。也不要在装了它的状态下进多人。</p>
+  </div>
+
+  <h2>功能</h2>
+  <ul>
+    <li><strong>透视方框</strong>:视野内敌人的方框和血条,墙后同样显示(不做遮挡判断,见下面的限制)。</li>
+    <li><strong>自动瞄准</strong>:按住鼠标右键时,准星自动拉到离准星最近的敌人头部;松开右键立刻把视角还给你,不拖着走。</li>
+    <li><strong>扳机机器人</strong>(<kbd>F5</kbd>):准星压住敌人时自动开火。开着它的时候自动瞄准会持续生效,用来跟连发后的枪口上跳对抗。</li>
+    <li><strong>头点标定</strong>(<kbd>F6</kbd> / <kbd>F7</kbd>):觉得打得偏高或偏低,当场把瞄准点降一点 / 抬一点。分「铁驭」和「泰坦」两套值,调完自动记住,下次进游戏不用重调。</li>
+    <li><strong>诊断键</strong>(<kbd>F8</kbd> / <kbd>F9</kbd> / <kbd>F10</kbd>):把当前目标、附近实体、开镜状态写进日志。出问题把日志发我,我基本能定位。</li>
+  </ul>
+
+  <h2 id="download">下载</h2>
+  <div class="actions" data-download-button="tf2-aimbot" data-label="下载 tf2-aimbot-v1.0.zip"></div>
+  <p class="muted">SHA256:<span data-download-hash="tf2-aimbot"></span></p>
+  <p class="muted">文件内容与校验值另见 <a href="../projects.html">项目与下载</a>。包里共 5 个文件:插件本体、注入器、一键注入 / 卸载的两个批处理,以及一份中文 readme。</p>
+
+  <h2 id="requirement">装之前先确认</h2>
+  <table>
+    <tr><th>项目</th><th>要求</th></tr>
+    <tr><td>游戏版本</td><td><strong>v2.0.11.0</strong>(Steam 版 / EA App 版都一样)</td></tr>
+    <tr><td>系统</td><td>Windows 10 / 11 64 位</td></tr>
+    <tr><td>运行库</td><td>不需要装任何运行库、不需要编译器</td></tr>
+    <tr><td>使用范围</td><td>仅单人战役</td></tr>
+  </table>
+
+  <h2 id="usage">怎么用</h2>
+  <ol>
+    <li>解压到一个<strong>纯英文路径</strong>的文件夹里,比如 <code>D:\tf2aim</code>。</li>
+    <li>启动游戏,进战役,能走动、能看到敌人为止。</li>
+    <li>双击 <code>inject.bat</code>。窗口里先等游戏就位,然后显示 <code>injected OK</code> 就是成功(注入失败就右键「以管理员身份运行」)。</li>
+    <li>回到游戏:方框直接出来;按住鼠标右键开始锁头。</li>
+  </ol>
+  <p>包里的 <code>README.txt</code> 有更完整的说明和排错。跑起来之后,同一目录会生成 <code>tf2-aimbot.log</code>,它的前两行就是自检结果:</p>
+  <pre><code>tf2aim init: game=ok hook=ok
+tf2aim esp: hooked</code></pre>
+  <p class="muted">两行都正常才说明插件接上了游戏。出现 <code>FAIL</code> 基本就是游戏版本对不上。</p>
+
+  <h3>热键</h3>
+  <table>
+    <tr><th>键</th><th>作用</th></tr>
+    <tr><td>鼠标右键(按住)</td><td>自动瞄准:锁离准星最近的敌人头部;松开立刻失效</td></tr>
+    <tr><td><kbd>F5</kbd></td><td>扳机机器人开关(自动开火)</td></tr>
+    <tr><td><kbd>F6</kbd> / <kbd>F7</kbd></td><td>把瞄准点降 1 / 抬 1(只影响当前锁定的目标类别:铁驭或泰坦)</td></tr>
+    <tr><td><kbd>F8</kbd></td><td>把当前目标的身体判定信息打进日志</td></tr>
+    <tr><td><kbd>F9</kbd></td><td>把身边最近的若干实体(类名 / 阵营 / 血量)打进日志</td></tr>
+    <tr><td><kbd>F10</kbd></td><td>开镜状态诊断</td></tr>
+  </table>
+
+  <h2>已知限制(装之前先看)</h2>
+  <ul>
+    <li><strong>只支持 v2.0.11.0</strong>。游戏一更新就可能失效,等新版包即可 —— 不要自己去改包里的文件。</li>
+    <li><strong>不做遮挡判断</strong>:墙后的敌人也会被框住,也会被当成锁定目标。选目标只按「离准星最近」算。</li>
+    <li>方框尺寸在个别带镜武器开镜时可能不跟着缩放。</li>
+    <li>只有方框和血条,没有名字、没有距离文字。</li>
+    <li>别反复双击 <code>inject.bat</code>:重复注入会留下多个实例(新的接管、旧的自己退休,不会崩,但日志会乱)。</li>
+    <li>不想要了就重启游戏,或双击 <code>unload.bat</code> 卸载。</li>
+  </ul>
+
+  <h2>出问题先看这几条</h2>
+  <ul>
+    <li><strong>注入后没反应、没框</strong>:看 <code>tf2-aimbot.log</code> 前两行,出现 <code>FAIL</code> 就是游戏版本不对。</li>
+    <li><strong>报 <code>CreateRemoteThread failed: 5</code></strong>:权限不够,用管理员身份运行 <code>inject.bat</code>。</li>
+    <li><strong>注入器说 dll not found</strong>:把整个文件夹挪到纯英文路径再试。</li>
+    <li><strong>杀毒软件报警</strong>:这类加载器被误报很常见。不放心就别用。</li>
+  </ul>
+
+  <h2>更新记录</h2>
+  <ul>
+    <li><strong>v1.0(2026-09-21)</strong> —— 首个对外发布的包:透视方框 + 血条、按住右键锁头、扳机机器人、头点现场标定、诊断日志。</li>
+  </ul>
+
+  <h2>风险</h2>
+  <p>这个包只做单人战役里的事,但「用第三方工具」本身可能违反游戏服务条款,账号风险由使用者承担。请不要在多人对局里使用,也不要把日志或截图发到多人相关的社区里。</p>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p><span data-site-title>本站</span> © <span data-year>2026</span> · 只发布单人模式的辅助工具。</p>
+    <p>多人对局请勿使用;因使用这些文件产生的一切后果由使用者自行承担。</p>
+    <p data-repo-link>反馈:</p>
+  </div>
+</footer>
+
+<script src="../assets/downloads.js"></script>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

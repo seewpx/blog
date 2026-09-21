@@ -1,0 +1,3 @@
+# 源码文本统一用 LF,压缩包按二进制处理,避免 checkout 时行尾漂移
+* text=auto eol=lf
+*.zip binary
