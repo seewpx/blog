@@ -19,25 +19,5 @@ const DOWNLOADS = [
     "asset": "tf2-aimbot-v1.1.zip",
     "size": 222077,
     "sha256": "9586dfc5591b11a1ba102af16bef39dc293c8dc5d2b817152d420243371fef33"
-  },
-  {
-    "id": "rdr2-aimbot",
-    "name": "荒野大镖客 2 剧情模式辅助(自动瞄准 + 透视)",
-    "game": "Red Dead Redemption 2",
-    "scope": "仅剧情模式",
-    "version": "20260831",
-    "date": "2026-08-31",
-    "gameVersion": "RDR2 PC(仅剧情模式)",
-    "guide": "posts/rdr2-aimbot.html#usage",
-    "summary": "解压即用的自动瞄准 + 透视:锁住最近的交战目标头部,同屏方框标注。",
-    "tags": [
-      "剧情模式",
-      "解压即用",
-      "免运行库"
-    ],
-    "tag": "20260831",
-    "asset": "rdr2-aimbot-20260831.zip",
-    "size": 306512,
-    "sha256": "3b761c3a5f599f1dff0e382801afd08a304d5dd23fe3473d9ed57a4bb6929b8d"
   }
 ];
