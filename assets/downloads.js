@@ -9,7 +9,7 @@ const DOWNLOADS = [
     "date": "2026-10-11",
     "gameVersion": "v2.0.11.0",
     "guide": "posts/tf2-aimbot.html#usage",
-    "summary": "复制两个文件即可用的战役辅助:透视方框 + 按住右键自动锁头,自带战役闸门(非战役关卡不启用)。",
+    "summary": "复制两个文件即可用的战役辅助:透视方框 + 按住右键自动锁头;多人没有用。",
     "tags": [
       "单人战役",
       "Windows x64",
