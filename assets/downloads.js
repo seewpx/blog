@@ -5,20 +5,20 @@ const DOWNLOADS = [
     "name": "Titanfall 2 战役辅助(自动瞄准 + 透视)",
     "game": "Titanfall 2",
     "scope": "仅单人战役",
-    "version": "v1.0",
-    "date": "2026-09-21",
+    "version": "v1.1",
+    "date": "2026-10-11",
     "gameVersion": "v2.0.11.0",
     "guide": "posts/tf2-aimbot.html#usage",
-    "summary": "注入式插件:透视方框 + 按住右键自动锁头,瞄准点落在头部。",
+    "summary": "复制两个文件即可用的战役辅助:透视方框 + 按住右键自动锁头,自带战役闸门(非战役关卡不启用)。",
     "tags": [
       "单人战役",
       "Windows x64",
       "免运行库"
     ],
-    "tag": "v1.0",
-    "asset": "tf2-aimbot-v1.0.zip",
-    "size": 230986,
-    "sha256": "eb1b7381fae4f91fe7ab9630bc4abe627b2f36776eca5002255a5284e2db738c"
+    "tag": "v1.1",
+    "asset": "tf2-aimbot-v1.1.zip",
+    "size": 222077,
+    "sha256": "9586dfc5591b11a1ba102af16bef39dc293c8dc5d2b817152d420243371fef33"
   },
   {
     "id": "rdr2-aimbot",

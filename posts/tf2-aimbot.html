@@ -23,12 +23,13 @@
 <main class="wrap">
 
   <h1>泰坦陨落 2 战役辅助:功能、用法与下载</h1>
-  <p class="meta">2026-09-21 · 版本 v1.0 · 仅单人战役 · 支持游戏版本 v2.0.11.0</p>
+  <p class="meta">2026-10-11 · 版本 v1.1 · 仅单人战役 · 支持游戏版本 v2.0.11.0</p>
 
   <p class="lede">给泰坦陨落 2 <strong>单人战役</strong>做的辅助:屏幕上的透视方框,加上按住右键把准星拉到最近敌人头部。战役流程里省得跟枪。</p>
 
   <div class="warn">
-    <p><strong>只用于单人战役。</strong>多人(官方服、Northstar 社区服)请不要用。也不要在装了它的状态下进多人。</p>
+    <p><strong>只用于单人战役。</strong>多人(官方服、Northstar 社区服)请不要用。</p>
+    <p>从 v1.1 起包内自带<strong>战役闸门</strong>:只有当前关卡是战役关卡时才启用,主菜单和多人对局一律不启用(实机验过:战役 <code>campaign=1</code>、多人大厅 <code>campaign=0</code>)。这是为了不让它在别人的对局里生效,不是给你绕过它的理由。</p>
   </div>
 
   <h2>功能</h2>
@@ -48,9 +49,9 @@
   </figure>
 
   <h2 id="download">下载</h2>
-  <div class="actions" data-download-button="tf2-aimbot" data-label="下载 tf2-aimbot-v1.0.zip"></div>
+  <div class="actions" data-download-button="tf2-aimbot" data-label="下载 tf2-aimbot-v1.1.zip"></div>
   <p class="muted">SHA256:<span data-download-hash="tf2-aimbot"></span></p>
-  <p class="muted">文件内容与校验值另见 <a href="../projects.html">项目与下载</a>。包里共 5 个文件:插件本体、注入器、一键注入 / 卸载的两个批处理,以及一份中文 readme。</p>
+  <p class="muted">文件内容与校验值另见 <a href="../projects.html">项目与下载</a>。包里共 3 个文件:<code>wsock32.dll</code>(加载器)、<code>tf2aim.dll</code>(功能本体)、一份中文 <code>README.txt</code>。安装 = 把前两个复制进游戏目录的 <code>bin\x64_retail\</code>,游戏启动时自行加载,没有需要手动运行的程序。</p>
 
   <h2 id="requirement">装之前先确认</h2>
   <table>
@@ -63,15 +64,16 @@
 
   <h2 id="usage">怎么用</h2>
   <ol>
-    <li>解压到一个<strong>纯英文路径</strong>的文件夹里,比如 <code>D:\tf2aim</code>。</li>
-    <li>启动游戏,进战役,能走动、能看到敌人为止。</li>
-    <li>双击 <code>inject.bat</code>。窗口里先等游戏就位,然后显示 <code>injected OK</code> 就是成功(注入失败就右键「以管理员身份运行」)。</li>
-    <li>回到游戏:方框直接出来;按住鼠标右键开始锁头。</li>
+    <li>把压缩包里的 <code>wsock32.dll</code> 和 <code>tf2aim.dll</code> 复制到游戏目录的 <code>bin\x64_retail\</code>,例如
+      <code>C:\Program Files (x86)\Steam\steamapps\common\Titanfall2\bin\x64_retail\</code>。</li>
+    <li>启动游戏,进战役,能走动、能看到敌人为止。方框直接出来;按住鼠标右键开始锁头。</li>
+    <li>确认加载成功:同一个目录里会出现 <code>tf2aim_proxy.log</code>(加载器生效)和 <code>tf2-aimbot.log</code>(本体日志)。</li>
   </ol>
-  <p>包里的 <code>README.txt</code> 有更完整的说明和排错。跑起来之后,同一目录会生成 <code>tf2-aimbot.log</code>,它的前两行就是自检结果:</p>
+  <p>包里的 <code>README.txt</code> 有更完整的说明和排错。<code>tf2-aimbot.log</code> 的前三行就是自检结果:</p>
   <pre><code>tf2aim init: game=ok hook=ok
-tf2aim esp: hooked</code></pre>
-  <p class="muted">两行都正常才说明插件接上了游戏。出现 <code>FAIL</code> 基本就是游戏版本对不上。</p>
+tf2aim esp: hooked
+gate: level=sp_boomtown campaign=1</code></pre>
+  <p class="muted">前两行说明插件接上了游戏(出现 <code>FAIL</code> 基本就是游戏版本对不上);第三行是<strong>战役闸门</strong>的判定 —— <code>campaign=1</code> 才表示当前关卡是战役图、功能已启用。关卡名随关卡变化,数值一直不准就看下面「已知限制」。</p>
 
   <h3>热键</h3>
   <table>
@@ -90,25 +92,27 @@ tf2aim esp: hooked</code></pre>
     <li><strong>不做遮挡判断</strong>:墙后的敌人也会被框住,也会被当成锁定目标。选目标只按「离准星最近」算。</li>
     <li>方框尺寸在个别带镜武器开镜时可能不跟着缩放。</li>
     <li>只有方框和血条,没有名字、没有距离文字。</li>
-    <li>别反复双击 <code>inject.bat</code>:重复注入会留下多个实例(新的接管、旧的自己退休,不会崩,但日志会乱)。</li>
-    <li>不想要了就重启游戏,或双击 <code>unload.bat</code> 卸载。</li>
+    <li><strong>闸门看的是关卡名</strong>:如果有人把自定义地图刻意命名成战役图的名字,闸门会被骗过 —— 那种情况下请自己判断要不要用。另外它在客户端,技术上是可以被人改掉的;这不是安全机制,是「别在别人的对局里生效」的保险。</li>
+    <li>放错了目录不会生效(实测:只有 <code>bin\x64_retail\</code> 会被加载,游戏根目录那份无效)。判断依据是那个目录里有没有 <code>tf2aim_proxy.log</code>。</li>
+    <li>不想要了就关掉游戏,把复制的两个 <code>.dll</code> 删掉(顺带删掉那两个 <code>.log</code>)。<strong>不要在游戏运行时删</strong>。</li>
   </ul>
 
   <h2>出问题先看这几条</h2>
   <ul>
-    <li><strong>注入后没反应、没框</strong>:看 <code>tf2-aimbot.log</code> 前两行,出现 <code>FAIL</code> 就是游戏版本不对。</li>
-    <li><strong>报 <code>CreateRemoteThread failed: 5</code></strong>:权限不够,用管理员身份运行 <code>inject.bat</code>。</li>
-    <li><strong>注入器说 dll not found</strong>:把整个文件夹挪到纯英文路径再试。</li>
-    <li><strong>杀毒软件报警</strong>:这类加载器被误报很常见。不放心就别用。</li>
+    <li><strong>复制进去了但游戏里没反应</strong>:看 <code>bin\x64_retail\</code> 里有没有 <code>tf2aim_proxy.log</code>。没有就是加载器没生效 —— 确认两个 dll 都在这个目录里(不是游戏根目录)。</li>
+    <li><strong>有 <code>tf2aim_proxy.log</code> 但没方框</strong>:看 <code>tf2-aimbot.log</code> 的前两行,出现 <code>FAIL</code> 就是游戏版本不对。</li>
+    <li><strong>进了战役还是没启用</strong>:看 <code>tf2-aimbot.log</code> 里 <code>gate:</code> 那行的 <code>campaign=</code>。若是 <code>0</code>,说明读到关卡名但它不在白名单里(或游戏更新改了那个字段),把两行日志发我即可定位。</li>
+    <li><strong>杀毒软件报警</strong>:<code>wsock32.dll</code> 这类代理加载器被误报很常见 —— 它做的事就是把系统网络的调用转发给真身,顺手载入同目录的 <code>tf2aim.dll</code>。不放心就别用。</li>
   </ul>
 
   <h2>更新记录</h2>
   <ul>
+    <li><strong>v1.1(2026-10-11)</strong> —— 加载方式改为复制文件(<code>wsock32.dll</code> 代理),不再需要注入器与批处理;新增<strong>战役闸门</strong>,只有战役关卡才启用(实机验证:战役启用 / 多人大厅与主菜单不启用);安装目录确认为 <code>bin\x64_retail\</code>。</li>
     <li><strong>v1.0(2026-09-21)</strong> —— 首个对外发布的包:透视方框 + 血条、按住右键锁头、扳机机器人、头点现场标定、诊断日志。</li>
   </ul>
 
   <h2>风险</h2>
-  <p>这个包只做单人战役里的事,但「用第三方工具」本身可能违反游戏服务条款,账号风险由使用者承担。请不要在多人对局里使用,也不要把日志或截图发到多人相关的社区里。</p>
+  <p>这个包只做单人战役里的事,并且自带闸门:非战役关卡一律不启用。但「用第三方工具」本身可能违反游戏服务条款,账号风险由使用者承担。请不要在多人对局里使用,也不要把日志或截图发到多人相关的社区里。</p>
 
 </main>
 
