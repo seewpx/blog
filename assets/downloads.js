@@ -17,7 +17,7 @@ const DOWNLOADS = [
     ],
     "tag": "v1.1",
     "asset": "tf2-aimbot-v1.1.zip",
-    "size": 222059,
-    "sha256": "42eca52aff516ecb0e9ddbbccc9463d6429238d98fa36341eea6a68f4b509513"
+    "size": 221970,
+    "sha256": "c5f6e0693408771d15f0a0ff9a61dc686f72d2a65e54e899e405fa78c0d1c431"
   }
 ];

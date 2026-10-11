@@ -29,7 +29,7 @@
 
   <div class="warn">
     <p><strong>只用于单人战役。</strong>多人(官方服、Northstar 社区服)请不要用。</p>
-    <p>从 v1.1 起包内自带<strong>战役闸门</strong>:只有当前关卡是战役关卡时才启用,主菜单和多人对局一律不启用(实机验过:战役 <code>campaign=1</code>、多人大厅 <code>campaign=0</code>)。这是为了不让它在别人的对局里生效,不是给你绕过它的理由。</p>
+    <p>从 v1.1 起包内自带<strong>战役闸门</strong>:只有当前关卡是战役关卡时才启用,主菜单和多人对局一律不启用(实机验过:战役 <code>campaign=1</code>、多人大厅 <code>campaign=0</code>)。</p>
   </div>
 
   <h2>功能</h2>
@@ -92,7 +92,7 @@ gate: level=sp_boomtown campaign=1</code></pre>
     <li><strong>不做遮挡判断</strong>:墙后的敌人也会被框住,也会被当成锁定目标。选目标只按「离准星最近」算。</li>
     <li>方框尺寸在个别带镜武器开镜时可能不跟着缩放。</li>
     <li>只有方框和血条,没有名字、没有距离文字。</li>
-    <li><strong>闸门是为了避免误用</strong>:它按当前关卡名判断,只在战役关卡启用,主菜单与多人对局都不启用。请不要试图绕过它 —— 它的目的就是不让它出现在别人的对局里。</li>
+    <li><strong>多人没有用</strong>:只在战役关卡启用,主菜单与多人对局都不生效。</li>
     <li>放错了目录不会生效(实测:只有 <code>bin\x64_retail\</code> 会被加载,游戏根目录那份无效)。判断依据是那个目录里有没有 <code>tf2aim_proxy.log</code>。</li>
     <li>不想要了就关掉游戏,把复制的两个 <code>.dll</code> 删掉(顺带删掉那两个 <code>.log</code>)。<strong>不要在游戏运行时删</strong>。</li>
   </ul>
